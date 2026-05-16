@@ -397,3 +397,31 @@ footer { border-top: 1px solid var(--line); }
   .experience-top { display: block; }
   .section { padding: 68px 0; }
 }
+
+/* Final layout fix: keep external view cards wide and readable */
+.resource-row {
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 14px;
+  align-items: stretch;
+}
+.project-card:not(.featured) .resource-row {
+  grid-template-columns: 1fr;
+}
+.resource-link {
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  min-height: 112px;
+}
+.resource-link > div {
+  min-width: 0;
+}
+.resource-link strong,
+.resource-link small {
+  overflow-wrap: anywhere;
+}
+@media (max-width: 900px) {
+  .resource-row {
+    grid-template-columns: 1fr;
+  }
+}
